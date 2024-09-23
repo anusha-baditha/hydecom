@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>
+            Otp Validation
+        </title>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/enterotp.css')}}">
+    </head>
+    <body>
+        <div class="a">
+            <form method="POST" action="{{url_for('verifyotp1')}}">
+                <label for="email">
+                    Mail id
+                </label>
+                <input type="text" id="email" name="mail" value="{{ email }}" >
+                <br>
+                <label for="otp">
+                    Enter OTP
+                </label>
+                <input type="text" id="otp" name="otp">
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </body>
+</html>

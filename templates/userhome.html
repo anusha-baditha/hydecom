@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login Page</title>
+	<link rel="stylesheet" href="{{url_for('static',filename='css/userhome.css')}}">
+</head>
+<body>
+	<div class="a">
+		<div class="aa">
+			<h2>Shopping Page</h2>
+            <h2>Welcome {{mail}}</h2>
+		</div>
+		<div>
+			<a href="{{'register'}}"><button class="aba">Register Page</button></a>
+		</div>
+		<div class="ab">
+			<a href="{{'login'}}"><button class="aba">Login Page</button></a>
+		</div>
+        <div class="ab">
+            <form method="POST" action="{{url_for('showcart')}}">
+                <input class="abc" type="text" name = "getcart" value="{{mail}}">
+                <input class = "xyz" type="submit" value="Show Cart">
+            </form>
+			<!-- <a href="{{'showcart'}}"><button class="aba">Show Cart</button></a> -->
+		</div>
+	</div>
+	<div class="b">
+		<div>
+			<div class="ba">
+				<img src="{{url_for('static',filename='images/toothpaste.jpg')}}">
+			</div>
+			<div class="bb"> 
+				<h5> Name : Tooth Paste </h5>
+				<h5> Cost : Rs. 120 </h5>
+				<form method="POST" action="{{url_for('storedata')}}">
+                    <input class="abc" type="text" name = "gather" value="ToothPaste,120,{{mail}}">
+                    <input class = "mno" type="submit" value="Add to Cart">
+                </form>
+			</div>
+		</div>
+		<div>
+			<div class="ba">
+				<img src="{{url_for('static',filename='images/toothbrush.jpg')}}">
+			</div>
+			<div class="bb"> 
+				<h5> Name : Tooth Brush </h5>
+				<h5> Cost : Rs. 100 </h5>
+                <form method="POST" action="{{url_for('storedata')}}">
+                    <input class="abc" type="text" name = "gather" value="ToothBrush,100,{{mail}}">
+                    <input class = "mno" type="submit" value="Add to Cart">
+                </form>
+			</div>
+		</div>
+		<div>
+			<div class="ba">
+				<img src="{{url_for('static',filename='images/comb.jpg')}}">
+			</div>
+			<div class="bb"> 
+				<h5> Name : Comb </h5>
+				<h5> Cost : Rs. 90 </h5>
+				<form method="POST" action="{{url_for('storedata')}}">
+                    <input class="abc" type="text" name = "gather" value="Comb,90,{{mail}}">
+                    <input class = "mno" type="submit" value="Add to Cart">
+                </form>
+			</div>
+		</div>
+		<div>
+			<div class="ba">
+				<img src="{{url_for('static',filename='images/powder.jpg')}}">
+			</div>
+			<div class="bb"> 
+				<h5> Name : Face Powder </h5>
+				<h5> Cost : Rs. 120 </h5>
+				<form method="POST" action="{{url_for('storedata')}}">
+                    <input class="abc" type="text" name = "gather" value="Face Powder,120,{{mail}}">
+                    <input class = "mno" type="submit" value="Add to Cart">
+                </form>
+			</div>
+		</div>
+		<div>
+			<div class="ba">
+				<img src="{{url_for('static',filename='images/moistrizer.jpg')}}">
+			</div>
+			<div class="bb"> 
+				<h5> Name : Moisturizer </h5>
+				<h5> Cost : Rs. 180 </h5>
+				<form method="POST" action="{{url_for('storedata')}}">
+                    <input class="abc" type="text" name = "gather" value="Moisturizer,180,{{mail}}">
+                    <input class = "mno" type="submit" value="Add to Cart">
+                </form>
+			</div>
+		</div>
+		<div>
+			<div class="ba">
+				<img src="{{url_for('static',filename='images/Shampoo.jpg')}}">
+			</div>
+			<div class="bb"> 
+				<h5> Name : Shampoo </h5>
+				<h5> Cost : Rs. 110 </h5>
+				<form method="POST" action="{{url_for('storedata')}}">
+                    <input class="abc" type="text" name = "gather" value="Shampoo,110,{{mail}}">
+                    <input class = "mno" type="submit" value="Add to Cart">
+                </form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

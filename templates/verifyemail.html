@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>
+            email Verification
+        </title>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/verifyemail.css')}}">
+    </head>
+    <body>
+        <div class="a">
+            <form method="POST" action="{{url_for('verify1')}}">
+                <label for="email">
+                    Enter Email: 
+                </label>
+                <input type="text" id="email" name="email">
+                <br>
+                <input type="submit" value="Verify">
+            </form>
+        </div>
+    </body>
+</html>

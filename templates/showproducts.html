@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Database Table</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product Details</h1>
+    <table>
+        <thead>
+            <tr>
+                <!-- Replace these with your actual column names -->
+                <th>Product Name</th>
+                <th>Product Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                <!-- Adjust the indices based on your table structure -->
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tr>
+            <th>Grand Total</th>
+            <td>{{total}}</td>
+        </tr>
+    </table>
+    <h2>Pay for {{ name }} - ₹{{ total }}</h2>
+    <button id="rzp-button1">Pay Now</button>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        var options = {
+            "key": "rzp_test_l6aaUvlqLyWYJX", // Enter your Razorpay Key ID here
+            "amount": "{{ order.amount }}", // Amount in paise
+            "currency": "INR",
+            "name": "{{ name }}",
+            "description": "Test Transaction",
+            "image": "https://example.com/your_logo",
+            "order_id": "{{ order.id }}", // Pass the order ID from Razorpay
+            "handler": function (response){
+                // Redirect to success route with the payment details
+                var form = document.createElement('form');
+                form.method = 'POST';
+                form.action = '/success';
+
+                form.innerHTML = `
+                    <input type="hidden" name="razorpay_payment_id" value="${response.razorpay_payment_id}">
+                    <input type="hidden" name="razorpay_order_id" value="${response.razorpay_order_id}">
+                    <input type="hidden" name="razorpay_signature" value="${response.razorpay_signature}">
+                    <input type="hidden" name="name" value="{{name}}">
+                    <input type="hidden" name="total_price" value="{{price}}">
+                `;
+                document.body.appendChild(form);
+                form.submit();
+            },
+            "prefill": {
+                "name": "Test User",
+                "email": "session.get('user')",
+                "contact": "9999999999"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        document.getElementById('rzp-button1').onclick = function(e){
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+</body>
+</html>

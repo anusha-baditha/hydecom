@@ -1,0 +1,21 @@
+.a{
+    background-color: rgb(186, 234, 234);
+    height : 150px;
+    margin : 20px;
+    display: grid;
+    grid-template-columns: auto auto;
+    text-align: center;
+    align-content: center;
+    border: solid;
+    border-color: black;
+    border-radius: 10px;
+}
+button{
+    background-color: black;
+    border: solid;
+    border-color: white;
+    color: white;
+    padding : 20px;
+    border-radius: 10px;
+
+}

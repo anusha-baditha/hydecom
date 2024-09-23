@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>
+            Registration Page
+        </title>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/login.css')}}">
+    </head>
+    <body>
+        <div class="a">
+            <form method="POST" action="{{url_for('login1')}}">
+                <label for="username">
+                    User Name: 
+                </label>
+                <input type="text" id="username" name="username">
+                <br>
+                <label for="pwd">
+                    Password: 
+                </label>
+                <input type="text" id="pwd" name="password">
+                <br>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </body>
+</html>

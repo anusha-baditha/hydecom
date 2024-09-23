@@ -1,0 +1,16 @@
+.a{
+    background-color: rgb(173, 234, 234);
+    margin : 20px;
+    padding: 30px;
+    text-align: center;
+    align-content: center;
+    border: solid;
+    border-radius: 10px;
+    border-color: black;
+}
+input{
+    margin-bottom: 10px;
+}
+label{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
