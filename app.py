@@ -14,7 +14,7 @@ user=os.environ.get('RDS_USERNAME')
 db=os.environ.get('RDS_DB_NAME')
 password=os.environ.get('RDS_PASSWORD')
 host=os.environ.get('RDS_HOSTNAME')
-port=os.environ.get('RDS_PORT')
+port=int(os.environ.get('RDS_PORT'))
 with pymysql.connect(host=host,password=password,db=db,user=user,port=port) as conn:
     cursor=conn.cursor()
     cursor.execute("CREATE TABLE if not exists users ( FNAME varchar(30) DEFAULT NULL, LNAME varchar(30) DEFAULT NULL, EMAIL varchar(40) NOT NULL, USERNAME varchar(40) DEFAULT NULL, PASSWORD varchar(40) DEFAULT NULL, PRIMARY KEY (EMAIL)) ")
