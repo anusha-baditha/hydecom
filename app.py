@@ -6,6 +6,7 @@ from email.mime.text import MIMEText
 import random
 import razorpay
 import os
+app = Flask(__name__)
 RAZORPAY_KEY_ID='rzp_test_l6aaUvlqLyWYJX'
 RAZORPAY_KEY_SECRET='pMbtKYdbYA4oIueh9jfslglM'
 client=razorpay.Client(auth=(RAZORPAY_KEY_ID,RAZORPAY_KEY_SECRET))
@@ -18,10 +19,16 @@ with pymysql.connect(host=host,password=password,db=db,user=user,port=port) as c
     cursor=conn.cursor()
     cursor.execute("CREATE TABLE if not exists users ( FNAME varchar(30) DEFAULT NULL, LNAME varchar(30) DEFAULT NULL, EMAIL varchar(40) NOT NULL, USERNAME varchar(40) DEFAULT NULL, PASSWORD varchar(40) DEFAULT NULL, PRIMARY KEY (EMAIL)) ")
     cursor.execute("CREATE TABLE if not exists cart ( PNAME varchar(20) DEFAULT NULL, PPRICE varchar(10) DEFAULT NULL, EMAIL varchar(40) DEFAULT NULL) ")
-db_config=pymysql.connect(host=host,user=user,password=password,db=db,port=port)
+#db_config=pymysql.connect(host=host,user=user,password=password,db=db,port=port)
 verifyotp = "0"
-app = Flask(__name__)
-curuser = ""
+db_config = {
+    'host': host,
+    'user': user,
+    'password': password,
+    'db': db,
+    'port': int(port)
+}
+
 '''
 db_config = {
     'host': 'localhost',
