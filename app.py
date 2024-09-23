@@ -18,7 +18,7 @@ port=os.environ.get('RDS_PORT')
 with pymysql.connect(host=host,password=password,db=db,user=user,port=port) as conn:
     cursor=conn.cursor()
     cursor.execute("CREATE TABLE if not exists users ( FNAME varchar(30) DEFAULT NULL, LNAME varchar(30) DEFAULT NULL, EMAIL varchar(40) NOT NULL, USERNAME varchar(40) DEFAULT NULL, PASSWORD varchar(40) DEFAULT NULL, PRIMARY KEY (EMAIL)) ")
-    cursor.execute("CREATE TABLE if not exists cart ( PNAME varchar(20) DEFAULT NULL, PPRICE varchar(10) DEFAULT NULL, EMAIL varchar(40) DEFAULT NULL) ")
+    cursor.execute("CREATE TABLE if not exists cart ( PNAME varchar(20) DEFAULT NULL, PPRICE varchar(10) DEFAULT NULL, EMAIL varchar(40) DEFAULT NULL) ") 
 #db_config=pymysql.connect(host=host,user=user,password=password,db=db,port=port)
 verifyotp = "0"
 db_config = {
@@ -35,8 +35,8 @@ db_config = {
     'database': 'ecom',
     'user': 'root',
     'password': 'root'
-}
-'''
+}'''
+
 
 @app.route("/")
 def home():
